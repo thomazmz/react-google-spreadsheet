@@ -8,7 +8,7 @@ export function ServiceProviderGrid({ content }) {
     return (
       <div className="serviceProviderGrid">
         {content.map((item, index) => (
-          <ServiceProviderCard {...item} />
+          <ServiceProviderCard {...item } key={index} />
         ))}
       </div>
     )

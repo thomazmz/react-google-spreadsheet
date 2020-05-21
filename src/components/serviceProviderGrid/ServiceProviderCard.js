@@ -5,19 +5,19 @@ export function ServiceProviderCard({
   name, 
   category,
   phoneNumber,
-  email,
+  emailAddress,
   city,
-  address,
+  workSiteAddress,
 }) {
   return (
     <>
-      <div className="serviceProviderCard">
+      <div className='serviceProviderCard'>
         <p>{name}</p>
         <p>{category}</p>
         <p>{phoneNumber}</p>
-        <p>{email}</p>
+        <p>{emailAddress}</p>
         <p>{city}</p>
-        <p>{address}</p>
+        <p>{workSiteAddress}</p>
       </div>
     </>
   )
@@ -27,7 +27,7 @@ ServiceProviderCard.propTypes = {
   name: PropTypes.string.isRequired,
   category: PropTypes.string.isRequired,
   phoneNumber: PropTypes.string.isRequired,
-  email: PropTypes.string.isRequired,
+  emailAddress: PropTypes.string.isRequired,
   city: PropTypes.string.isRequired,
-  address: PropTypes.string.isRequired
+  workSiteAddress: PropTypes.string.isRequired
 }
