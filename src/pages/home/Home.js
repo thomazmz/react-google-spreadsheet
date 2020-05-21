@@ -1,26 +1,19 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { ServiceProviderGrid } from '../../components/serviceProviderGrid'
+import { getServiceProviders } from '../../spreadSheets'
 
 export default function Home() {
 
-  const news = [
-    {
-      name: 'someName',
-      category: 'someCategory',
-      phoneNumber: 'somePhoneNumber',
-      email: 'someEmailAddress',
-      city: 'someCity',
-      address: 'someAddress'
-    },
-    {
-      name: 'someAnotherName',
-      category: 'someAnotherCategory',
-      phoneNumber: 'someAnotherPhoneNumber',
-      email: 'someAnotherEmail',
-      city: 'someAnotherCity',
-      address: 'someAnotherAddress'
-    }
-  ]
+  const [serviceProviders, setServiceProviders] = useState([])
 
-  return <ServiceProviderGrid content={news} />
+  const loadServiceProvicers = async () => {
+    const serviceProvidersJson = await getServiceProviders()
+    setServiceProviders(serviceProvidersJson)
+  }
+
+  useEffect(() => {
+    loadServiceProvicers()
+  }, [])
+
+  return <ServiceProviderGrid content={serviceProviders} />
 }
